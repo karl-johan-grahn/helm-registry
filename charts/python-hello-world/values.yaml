@@ -37,7 +37,6 @@ service:
   type: LoadBalancer
   externalPort: 80
   internalPort: 5000
-  port: 80
 
 ingress:
   enabled: false
