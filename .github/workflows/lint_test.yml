@@ -6,25 +6,30 @@ on:
       - 'charts/**'
 
 jobs:
-  lint-chart:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run chart-testing (lint)
+      - name: Fetch history
+        run: git fetch --prune --unshallow
+      - name: Run chart-testing - Lint
         uses: helm/chart-testing-action@v1.0.0
         with:
           command: lint
-  test-chart:
+  test:
     runs-on: ubuntu-latest
+    needs: lint
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Fetch history
+        run: git fetch --prune --unshallow
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-alpha.3
         with:
           node_image: kindest/node:v1.18.8
-        # Only build a kind cluster if there are chart changes to test
-        if: steps.lint.outputs.changed == 'true'
-      - name: Run chart-testing (install)
+      - name: Run chart-testing - Install
         uses: helm/chart-testing-action@v1.0.0
         with:
           command: install
