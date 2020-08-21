@@ -7,4 +7,5 @@ name: python-hello-world
 version: 0.1.0
 home: https://github.com/karl-johan-grahn/private-helm-registry/charts/python-hello-world
 maintainers:
-  - name: Karl-Johan Grahn
+  - name: karl-johan-grahn
+    email: donotuse@donotuse.com
