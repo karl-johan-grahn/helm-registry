@@ -30,7 +30,8 @@ stop search engines from ranking it, in case the registry will be made public.
 ## Future Work
 For a production environment, consider the following:
 * Can an existing Helm registry be used?
-* Which Kubernetes versions should be supported?
+* Use `Ingress` instead of `NodePort` to expose service
+* Which Kubernetes versions should be supported and regression tested against?
 * Customize liveness and readiness endpoints:
     * When creating a chart, Helm points the `livenessProbe` and `readinessProbe`
     to `/` by default in `deployment.yaml`
