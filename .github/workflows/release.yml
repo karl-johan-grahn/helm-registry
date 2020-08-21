@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Fetch history
+        run: git fetch --prune --unshallow
       - name: Configure Git
         # Set the configuration of Git to the user that started the workflow
         run: |
