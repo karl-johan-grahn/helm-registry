@@ -31,9 +31,6 @@ stop search engines from ranking it, in case the registry will be made public.
 For a production environment, consider the following:
 * Can an existing Helm registry be used?
 * Which Kubernetes versions should be supported?
-    * To ensure backwards compatibility:
-        * Run `kubeval` chart across all versions
-        * Install chart on `kind` cluster across all versions
 * Customize liveness and readiness endpoints:
     * When creating a chart, Helm points the `livenessProbe` and `readinessProbe`
     to `/` by default in `deployment.yaml`

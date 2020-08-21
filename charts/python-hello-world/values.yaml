@@ -33,11 +33,10 @@ securityContext: {}
 
 service:
   name: hello_world
-  # This exposes the service externally using a cloud provider’s load balancer
-  type: LoadBalancer
-  externalPort: 80
-  internalPort: 5000
-  port: 5000
+  type: NodePort
+  exposePort: 30000
+  targetPort: 5000
+  internalport: 3000
 
 ingress:
   enabled: false
