@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "ops_assignment-chart.fullname" . }}
+  name: {{ include "python-hello-world.fullname" . }}
   labels:
-{{ include "ops_assignment-chart.labels" . | indent 4 }}
+{{ include "python-hello-world.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "ops_assignment-chart.name" . }}
+      app.kubernetes.io/name: {{ include "python-hello-world.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "ops_assignment-chart.name" . }}
+        app.kubernetes.io/name: {{ include "python-hello-world.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ template "ops_assignment-chart.serviceAccountName" . }}
+      serviceAccountName: {{ template "python-hello-world.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
