@@ -26,7 +26,7 @@ jobs:
         release: '${{ github.event.inputs.chart }}'
         namespace: 'default'
         chart: '${{ github.event.inputs.chart }}'
-        version: '${{ github.event.inputs.version }}'
-        repo: 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/helm-registry/gh-pages/'
+        chart_version: '${{ github.event.inputs.version }}'
+        repository: 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/helm-registry/gh-pages/'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
