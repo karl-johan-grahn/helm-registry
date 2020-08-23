@@ -10,7 +10,7 @@ on:
       version:
         description: 'Helm chart version'
         required: true
-        default: '0.1.1'
+        default: '0.2.0'
 
 jobs:
   deployment:
