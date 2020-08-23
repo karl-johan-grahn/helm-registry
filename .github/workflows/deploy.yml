@@ -20,13 +20,24 @@ jobs:
       uses: actions/checkout@v2
     - name: Fetch history
       run: git fetch --prune --unshallow
-    - name: Deploy
+    - name: Add Helm repo
       uses: wahyd4/kubectl-helm-action@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
         args: |
           helm repo add kjg 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/private-helm-registry/gh-pages/'
+    - name: Update repo
+      uses: wahyd4/kubectl-helm-action@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: |
           helm repo update
-          helm search '${{ github.event.inputs.chart }}'
-          helm install '${{ github.event.inputs.chart }}' 'kjg/${{ github.event.inputs.chart }}' --version '${{ github.event.inputs.version }}'
+    - name: Install chart
+      uses: wahyd4/kubectl-helm-action@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: |
+          helm install ${{ github.event.inputs.chart }} kjg/${{ github.event.inputs.chart }} --version ${{ github.event.inputs.version }}
