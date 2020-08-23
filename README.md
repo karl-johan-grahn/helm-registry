@@ -24,7 +24,8 @@ as part of changes to charts via pull requests.
 ### Release
 When a chart is updated on `master`, the `index.yaml` file
 will automatically be updated via [GitHub workflow](.github/workflows/release.yml)
-on the [gh-pages branch](https://github.com/karl-johan-grahn/helm-registry/blob/gh-pages/index.yaml).
+on the [gh-pages branch](https://github.com/karl-johan-grahn/helm-registry/blob/gh-pages/index.yaml)
+and a release will automatically be created.
 
 ### Deploy
 When a cluster is provisioned, store the cluster authentication information for
