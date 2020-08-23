@@ -17,16 +17,16 @@ stop search engines from ranking it.
 ## Helm Charts
 The charts are located in the [charts](charts) folder.
 
-## Build
+### Build
 The charts are linted and tested automatically via [GitHub workflow](.github/workflows/lint_test.yml)
 as part of changes to charts via pull requests.
 
-## Release
+### Release
 When a chart is updated on `master`, the `index.yaml` file
 will automatically be updated via [GitHub workflow](.github/workflows/release.yml)
 on the [gh-pages branch](https://github.com/karl-johan-grahn/helm-registry/blob/gh-pages/index.yaml).
 
-## Deploy
+### Deploy
 When a cluster is provisioned, store the cluster authentication information for
 kubectl in the `KUBECONFIG` secret and deploy the charts with the
 [Deploy](.github/workflows/deploy.yml) workflow.
