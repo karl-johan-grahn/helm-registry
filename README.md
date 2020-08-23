@@ -12,7 +12,7 @@ this feature via `raw.githubusercontent.com`. In order for Helm to be able
 to pull files from such repository we need to provide it a personal access token.
 
 Add a [robots.txt](robots.txt) file to stop bots from visiting the site and
-stop search engines from ranking it, in case the registry will be made public.
+stop search engines from ranking it.
 
 ## Helm Charts
 The charts are located in the [charts](charts) folder.
