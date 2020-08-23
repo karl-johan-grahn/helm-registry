@@ -17,8 +17,8 @@ stop search engines from ranking it.
 ## Helm Charts
 The charts are located in the [charts](charts) folder.
 
-### Build
-The charts are linted and tested automatically via [GitHub workflow](.github/workflows/lint_test.yml)
+### Quality assurance
+The charts are linted automatically via [GitHub workflow](.github/workflows/lint_test.yml)
 as part of changes to charts via pull requests.
 
 ### Release
@@ -44,6 +44,7 @@ Kubernetes OpenAPI specification using [kubeval](https://github.com/instrumenta/
     to `/` by default in `deployment.yaml`
     * Implement a proper `/live` and `/ready` endpoint in the service and
     parametrize the readiness probes to use those custom endpoints instead
+* Investigate how to use LoadBalancer service type together with Kind cluster for testing charts
 * Helm does not seem to support installing charts from private GitHub repositores,
 so the repository has to be public for now:
 https://github.com/helm/helm/issues/8392

@@ -33,11 +33,10 @@ securityContext: {}
 
 service:
   name: hello_world
-  # Only for dev environments
-  type: NodePort
-  port: 5000  # Used by other pods to access assets that's avilable in the container
-  targetPort: 5000  # Port number the pod's primary container is listening on. Needs to mirror containerPort.
-  nodePort: 30000  # Ranges between 30000-32767
+  type: LoadBalancer
+  externalPort: 80
+  internalPort: 5000
+  port: 80
 
 ingress:
   enabled: false
