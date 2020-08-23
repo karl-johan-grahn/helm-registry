@@ -3,15 +3,15 @@ entries:
   python-hello-world:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2020-08-23T19:23:03.790438812Z"
+    created: "2020-08-23T23:04:21.059339418Z"
     description: A Helm chart for Kubernetes
-    digest: c33a67973a0c9ef4801373d0be23fb2db32488e47bf3e77e554452fee3d03cc7
+    digest: 9207323a1709699e30a3b11364ab16b9d571ca80187aadcba88dab49a3449bb2
     home: https://github.com/karl-johan-grahn/helm-registry/charts/python-hello-world
     maintainers:
     - email: donotuse@donotuse.com
       name: karl-johan-grahn
     name: python-hello-world
     urls:
-    - https://github.com/karl-johan-grahn/helm-registry/releases/download/python-hello-world-0.2.0/python-hello-world-0.2.0.tgz
-    version: 0.2.0
-generated: "2020-08-23T19:23:03.685059049Z"
+    - https://github.com/karl-johan-grahn/helm-registry/releases/download/python-hello-world-0.3.0/python-hello-world-0.3.0.tgz
+    version: 0.3.0
+generated: "2020-08-23T23:04:20.901828299Z"
