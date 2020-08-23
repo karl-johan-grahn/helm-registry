@@ -1,4 +1,4 @@
-# Private Helm Registry
+# Helm Registry
 This repository is a private Helm chart repository to host charts,
 and host and share Helm packages.
 
@@ -39,3 +39,6 @@ Kubernetes OpenAPI specification using [kubeval](https://github.com/instrumenta/
     to `/` by default in `deployment.yaml`
     * Implement a proper `/live` and `/ready` endpoint in the service and
     parametrize the readiness probes to use those custom endpoints instead
+* Helm does not seem to support installing charts from private GitHub repositores,
+so the repository has to be public for now:
+https://github.com/helm/helm/issues/8392
