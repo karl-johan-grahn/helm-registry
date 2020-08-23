@@ -1,5 +1,5 @@
-# Private Helm Registry
-This repository is a private Helm chart repository to host charts,
+# Helm Registry
+This repository is a Helm chart repository to host charts,
 and host and share Helm packages.
 
 ## Helm Charts
@@ -18,7 +18,7 @@ on the `gh-pages` branch.
 Everything needed to host a Helm registry is the ability to host the `index.yaml`
 file and the `.tgz` package files.
 
-For this assignment, `GitHub` will be used as a private charts repository to
+For this assignment, `GitHub` will be used as a charts repository to
 avoid the need to manage a separate web server. Files will be accessed
 as if GitHub was a simple HTTP server hosting raw files. Github provides
 this feature via `raw.githubusercontent.com`. In order for Helm to be able
@@ -39,3 +39,6 @@ Kubernetes OpenAPI specification using [kubeval](https://github.com/instrumenta/
     to `/` by default in `deployment.yaml`
     * Implement a proper `/live` and `/ready` endpoint in the service and
     parametrize the readiness probes to use those custom endpoints instead
+* Helm does not seem to support installing charts from private GitHub repositores,
+so the repository has to be public for now:
+https://github.com/helm/helm/issues/8392
