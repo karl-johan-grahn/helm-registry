@@ -31,6 +31,8 @@ stop search engines from ranking it, in case the registry will be made public.
 For a production environment, consider the following:
 * Can an existing Helm registry be used?
 * Use `Ingress` instead of `NodePort` to expose service
+* Validate the output from Helm against schemas generated from the
+Kubernetes OpenAPI specification using [kubeval](https://github.com/instrumenta/kubeval)
 * Which Kubernetes versions should be supported and regression tested against?
 * Customize liveness and readiness endpoints:
     * When creating a chart, Helm points the `livenessProbe` and `readinessProbe`

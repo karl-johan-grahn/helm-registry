@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      chart:
+        description: 'Helm chart name'
+        required: true
+        default: 'python-hello-world'
+      version:
+        description: 'Helm chart version'
+        required: true
+        default: '0.1.0'
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Fetch history
+      run: git fetch --prune --unshallow
+    - name: Deploy
+      uses: deliverybot/helm@v1
+      with:
+        release: '${{ github.event.inputs.chart }}'
+        namespace: 'default'
+        chart: '${{ github.event.inputs.chart }}'
+        version: '${{ github.event.inputs.version }}'
+        repo: 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/private-helm-registry/gh-pages/'
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
