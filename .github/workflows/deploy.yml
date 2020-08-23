@@ -21,12 +21,12 @@ jobs:
     - name: Fetch history
       run: git fetch --prune --unshallow
     - name: Deploy
-      uses: deliverybot/helm@v1
-      with:
-        release: '${{ github.event.inputs.chart }}'
-        namespace: 'default'
-        chart: '${{ github.event.inputs.chart }}'
-        version: '${{ github.event.inputs.version }}'
-        repo: 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/private-helm-registry/gh-pages/'
+      uses: wahyd4/kubectl-helm-action@master
       env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: |
+          helm init
+          helm repo add kjg 'https://${{ secrets.CR_TOKEN }}@raw.githubusercontent.com/karl-johan-grahn/private-helm-registry/gh-pages/'
+          helm repo update
+          helm install kjg/${{ github.event.inputs.chart }} --name ${{ github.event.inputs.chart }} --version ${{ github.event.inputs.version }}
