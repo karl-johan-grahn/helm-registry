@@ -32,10 +32,20 @@ When a cluster is provisioned, store the cluster authentication information for
 kubectl in the `KUBECONFIG` secret and deploy the charts with the
 [Deploy](.github/workflows/deploy.yml) workflow.
 
+## Python hello world
+The [python-hello-world](https://github.com/karl-johan-grahn/python-hello-world)
+service is made available externally through a load balancer which Kops creates
+as part of cluster provisioning. On successful deploy, it can be accessed through
+the load balancers' external IP:
+![hello](hello.png)
+
+An `A` record can be created in AWS R53 to associate a custom domain name with
+the load balancer:
+![hello via custom domain](hello_elb.png)
+
 ## Future Work
 For a production environment, consider the following:
 * Can an existing Helm registry be used?
-* Use `Ingress` instead of `NodePort` to expose service
 * Validate the output from Helm against schemas generated from the
 Kubernetes OpenAPI specification using [kubeval](https://github.com/instrumenta/kubeval)
 * Which Kubernetes versions should be supported and regression tested against?
